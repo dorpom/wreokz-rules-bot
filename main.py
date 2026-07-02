@@ -19,8 +19,8 @@ def run_web_server():
 TOKEN = "8876675428:AAH6dfbbDMpv2aSpjWDUqOISaiq4Hq6Ub6I"
 bot = telebot.TeleBot(TOKEN)
 
-# Данные для публикации
-TEXT_MESSAGE = "*Незнание правил не освобождает от ответственности! Советуем прочитать правила перед общением* 🥰"
+# Текст теперь с HTML-тегами для жирного шрифта
+TEXT_MESSAGE = "<b>Незнание правил не освобождает от ответственности!</b>\n\nСоветуем прочитать <b>правила</b> перед общением 🥰"
 RULES_LINK = "https://t.me/+QK1Rg1wGUWUzNTgy"
 IMAGE_PATH = "photo_2026-07-02_18-46-50.jpg" 
 
@@ -40,16 +40,17 @@ def handle_discussion_post(message):
             print(f"Ошибка: Файл {IMAGE_PATH} не найден!")
             return
 
-        # Отправляем фото в чат комментариев в качестве ответа на пересланный пост
+        # Отправляем фото в чат комментариев с поддержкой жирного текста (parse_mode='HTML')
         with open(IMAGE_PATH, 'rb') as photo:
             bot.send_photo(
                 chat_id=message.chat.id,          # ID чата обсуждения (комментариев)
                 photo=photo,
                 caption=TEXT_MESSAGE,
+                parse_mode='HTML',                # Включаем жирный шрифт
                 reply_to_message_id=message.message_id,  # Отвечаем прямо на этот пост
                 reply_markup=get_rules_keyboard()
             )
-        print(f"Успешно отправлен комментарий к посту №{message.message_id}")
+        print(f"Успешно отправлен красивый комментарий к посту №{message.message_id}")
     except Exception as e:
         print(f"Произошла ошибка при отправке в комментарии: {e}")
 
@@ -58,5 +59,5 @@ if __name__ == "__main__":
     t = Thread(target=run_web_server)
     t.start()
     
-    print("Бот успешно запущен и ожидает новые посты в комментариях...")
+    print("Бот успешно запущен с жирным текстом...")
     bot.infinity_polling()
