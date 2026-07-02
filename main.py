@@ -20,7 +20,7 @@ TOKEN = "8876675428:AAH6dfbbDMpv2aSpjWDUqOISaiq4Hq6Ub6I"
 bot = telebot.TeleBot(TOKEN)
 
 # Данные для публикации
-TEXT_MESSAGE = "Незнание правил не освобождает от ответственности! Советуем прочитать правила перед общением 🥰"
+TEXT_MESSAGE = "*Незнание правил не освобождает от ответственности! Советуем прочитать правила перед общением* 🥰"
 RULES_LINK = "https://t.me/+QK1Rg1wGUWUzNTgy"
 IMAGE_PATH = "photo_2026-07-02_18-46-50.jpg" 
 
