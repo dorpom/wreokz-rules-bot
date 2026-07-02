@@ -8,7 +8,7 @@ bot = telebot.TeleBot(TOKEN)
 
 TEXT_MESSAGE = "Незнание правил не освобождает от ответственности! Советуем прочитать правила перед общением 🥰"
 RULES_LINK = "https://t.me/+QK1Rg1wGUWUzNTgy"
-IMAGE_PATH = "1000008943.jpg" 
+IMAGE_PATH = "photo_2026-07-02_18-46-50.jpg" 
 
 def get_rules_keyboard():
     markup = InlineKeyboardMarkup()
